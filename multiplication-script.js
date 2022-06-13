@@ -15,15 +15,15 @@ function creerTableau(e) {
     if (Number.isInteger(m) && Number.isInteger(n)){
 
         if((valeur1.value || valeur2.value) !== 0){
-            erreur.innerHTML = 'Saississez des valeurs numeriques differentes de 0'
-            setTimeout(() => {
-                erreur.innerHTML = '';
-                valeur1.value = '';
-                valeur2.value = '';
-            }, 2000)
-        }
+        //     erreur.innerHTML = 'Saississez des valeurs numeriques differentes de 0'
+        //     setTimeout(() => {
+        //         erreur.innerHTML = '';
+        //         valeur1.value = '';
+        //         valeur2.value = '';
+        //     }, 2000)
+        // }
 
-        else{
+        // else{
             let resultat;
             suit.style.display = 'block';
 
