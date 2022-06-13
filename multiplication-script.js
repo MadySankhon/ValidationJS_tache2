@@ -14,43 +14,51 @@ function creerTableau(e) {
     
     if (Number.isInteger(m) && Number.isInteger(n)){
 
-        if((valeur1.value || valeur2.value) !== 0){
-        //     erreur.innerHTML = 'Saississez des valeurs numeriques differentes de 0'
-        //     setTimeout(() => {
-        //         erreur.innerHTML = '';
-        //         valeur1.value = '';
-        //         valeur2.value = '';
-        //     }, 2000)
-        // }
+        let resultat;
+        suit.style.display = 'block';
 
-        // else{
-            let resultat;
-            suit.style.display = 'block';
-
-            let tableau = document.createElement("table"); //création du tableau
-            tableau.className = 'table'; // Affecter un classe bootstrap
-            let CorpsTableau = document.createElement("tbody"); //création de corps du tableau
+        let tableau = document.createElement("table"); //création du tableau
+        tableau.className = 'table'; // Affecter un classe bootstrap
+        let CorpsTableau = document.createElement("tbody"); //création de corps du tableau
 
 
-            for(let i = 1; i <= m; i++){
-                // resultat = input1Value * i;
-                // alert("le resultat est :" + resultat);
+        for(let i = 1; i <= m; i++){
+            // resultat = input1Value * i;
+            // alert("le resultat est :" + resultat);
 
-                let ligne = document.createElement("tr"); // création des lignes
+            let ligne = document.createElement("tr"); // création des lignes
 
-                for(let j = 1; j <= n; j++){
-                    resultat = i * j; // calcul des resultats
+            for(let j = 1; j <= n; j++){
+                resultat = i * j; // calcul des resultats
 
-                    let cell = document.createElement("td"); // creation de la cellule
-                    let contenuCell = document.createTextNode(resultat);// Ajout du resultat de calcul
-                    cell.appendChild(contenuCell);// ajout du contenu à la cellule
-                    ligne.appendChild(cell); // ajout de la cellule à la ligne
-                }
-                tableau.appendChild(CorpsTableau);// ajout de tbody au tableau
-                suit.appendChild(tableau);
-            } 
-        }  
+                let cell = document.createElement("td"); // creation de la cellule
+                let contenuCell = document.createTextNode(resultat);// Ajout du resultat de calcul
+                cell.appendChild(contenuCell);// ajout du contenu à la cellule
+                ligne.appendChild(cell); // ajout de la cellule à la ligne
+            }
+            tableau.appendChild(CorpsTableau);// ajout de tbody au tableau
+            suit.appendChild(tableau);
+        } 
+    }  
+
+    else if((valeur1.value || valeur2.value) == 0){
+        erreur.innerHTML = 'Saississez des valeurs numeriques differentes de 0'
+            setTimeout(() => {
+                erreur.innerHTML = '';
+                valeur1.value = '';
+                valeur2.value = '';
+            }, 5000)
     }
+
+    else if((valeur1.value || valeur2.value) == null){
+        erreur.innerHTML = 'Au moin un des champs de saisie est vide, saississez des valeurs numeriques differentes de 0'
+            setTimeout(() => {
+                erreur.innerHTML = '';
+                valeur1.value = '';
+                valeur2.value = '';
+            }, 5000)
+    }
+
     else{
         erreur.innerHTML = 'Ajoutez des nombres ou chiffres'
         setTimeout(() => {
